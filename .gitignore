@@ -1,7 +1,7 @@
-/target/
 .mvn
 mvnw
 mvnw.cmd
+target/
 
 ### STS ###
 .apt_generated
@@ -25,3 +25,6 @@ mvnw.cmd
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### log ###
+/logs
