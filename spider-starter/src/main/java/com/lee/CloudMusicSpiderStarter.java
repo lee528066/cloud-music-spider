@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author liwei
  */
-
 @SpringBootApplication(scanBasePackages={"com.lee"})
 @MapperScan("com.lee.dao.mapper")
 public class CloudMusicSpiderStarter {
