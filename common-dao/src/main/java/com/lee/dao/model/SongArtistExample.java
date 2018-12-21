@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SongExample {
+public class SongArtistExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SongExample() {
+    public SongArtistExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,6 +165,66 @@ public class SongExample {
             return (Criteria) this;
         }
 
+        public Criteria andSongIdIsNull() {
+            addCriterion("song_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdIsNotNull() {
+            addCriterion("song_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdEqualTo(Long value) {
+            addCriterion("song_id =", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdNotEqualTo(Long value) {
+            addCriterion("song_id <>", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdGreaterThan(Long value) {
+            addCriterion("song_id >", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("song_id >=", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdLessThan(Long value) {
+            addCriterion("song_id <", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdLessThanOrEqualTo(Long value) {
+            addCriterion("song_id <=", value, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdIn(List<Long> values) {
+            addCriterion("song_id in", values, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdNotIn(List<Long> values) {
+            addCriterion("song_id not in", values, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdBetween(Long value1, Long value2) {
+            addCriterion("song_id between", value1, value2, "songId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSongIdNotBetween(Long value1, Long value2) {
+            addCriterion("song_id not between", value1, value2, "songId");
+            return (Criteria) this;
+        }
+
         public Criteria andCloudSongIdIsNull() {
             addCriterion("cloud_song_id is null");
             return (Criteria) this;
@@ -225,203 +285,133 @@ public class SongExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andArtistIsNull() {
+            addCriterion("artist is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andArtistIsNotNull() {
+            addCriterion("artist is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andArtistEqualTo(String value) {
+            addCriterion("artist =", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andArtistNotEqualTo(String value) {
+            addCriterion("artist <>", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andArtistGreaterThan(String value) {
+            addCriterion("artist >", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andArtistGreaterThanOrEqualTo(String value) {
+            addCriterion("artist >=", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andArtistLessThan(String value) {
+            addCriterion("artist <", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andArtistLessThanOrEqualTo(String value) {
+            addCriterion("artist <=", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andArtistLike(String value) {
+            addCriterion("artist like", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andArtistNotLike(String value) {
+            addCriterion("artist not like", value, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andArtistIn(List<String> values) {
+            addCriterion("artist in", values, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andArtistNotIn(List<String> values) {
+            addCriterion("artist not in", values, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andArtistBetween(String value1, String value2) {
+            addCriterion("artist between", value1, value2, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andArtistNotBetween(String value1, String value2) {
+            addCriterion("artist not between", value1, value2, "artist");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdIsNull() {
-            addCriterion("cloud_album_id is null");
+        public Criteria andCloudArtistIdIsNull() {
+            addCriterion("cloud_artist_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdIsNotNull() {
-            addCriterion("cloud_album_id is not null");
+        public Criteria andCloudArtistIdIsNotNull() {
+            addCriterion("cloud_artist_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdEqualTo(Long value) {
-            addCriterion("cloud_album_id =", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdEqualTo(Long value) {
+            addCriterion("cloud_artist_id =", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdNotEqualTo(Long value) {
-            addCriterion("cloud_album_id <>", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdNotEqualTo(Long value) {
+            addCriterion("cloud_artist_id <>", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdGreaterThan(Long value) {
-            addCriterion("cloud_album_id >", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdGreaterThan(Long value) {
+            addCriterion("cloud_artist_id >", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("cloud_album_id >=", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("cloud_artist_id >=", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdLessThan(Long value) {
-            addCriterion("cloud_album_id <", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdLessThan(Long value) {
+            addCriterion("cloud_artist_id <", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdLessThanOrEqualTo(Long value) {
-            addCriterion("cloud_album_id <=", value, "cloudAlbumId");
+        public Criteria andCloudArtistIdLessThanOrEqualTo(Long value) {
+            addCriterion("cloud_artist_id <=", value, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdIn(List<Long> values) {
-            addCriterion("cloud_album_id in", values, "cloudAlbumId");
+        public Criteria andCloudArtistIdIn(List<Long> values) {
+            addCriterion("cloud_artist_id in", values, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdNotIn(List<Long> values) {
-            addCriterion("cloud_album_id not in", values, "cloudAlbumId");
+        public Criteria andCloudArtistIdNotIn(List<Long> values) {
+            addCriterion("cloud_artist_id not in", values, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdBetween(Long value1, Long value2) {
-            addCriterion("cloud_album_id between", value1, value2, "cloudAlbumId");
+        public Criteria andCloudArtistIdBetween(Long value1, Long value2) {
+            addCriterion("cloud_artist_id between", value1, value2, "cloudArtistId");
             return (Criteria) this;
         }
 
-        public Criteria andCloudAlbumIdNotBetween(Long value1, Long value2) {
-            addCriterion("cloud_album_id not between", value1, value2, "cloudAlbumId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumIsNull() {
-            addCriterion("album is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumIsNotNull() {
-            addCriterion("album is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumEqualTo(String value) {
-            addCriterion("album =", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumNotEqualTo(String value) {
-            addCriterion("album <>", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumGreaterThan(String value) {
-            addCriterion("album >", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumGreaterThanOrEqualTo(String value) {
-            addCriterion("album >=", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumLessThan(String value) {
-            addCriterion("album <", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumLessThanOrEqualTo(String value) {
-            addCriterion("album <=", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumLike(String value) {
-            addCriterion("album like", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumNotLike(String value) {
-            addCriterion("album not like", value, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumIn(List<String> values) {
-            addCriterion("album in", values, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumNotIn(List<String> values) {
-            addCriterion("album not in", values, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumBetween(String value1, String value2) {
-            addCriterion("album between", value1, value2, "album");
-            return (Criteria) this;
-        }
-
-        public Criteria andAlbumNotBetween(String value1, String value2) {
-            addCriterion("album not between", value1, value2, "album");
+        public Criteria andCloudArtistIdNotBetween(Long value1, Long value2) {
+            addCriterion("cloud_artist_id not between", value1, value2, "cloudArtistId");
             return (Criteria) this;
         }
 

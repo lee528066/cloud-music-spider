@@ -2,6 +2,7 @@ package com.lee.spider.parser;
 
 import com.google.common.collect.Lists;
 import com.lee.dao.model.Playlist;
+import com.lee.spider.constant.ParserConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
@@ -32,7 +33,7 @@ public class HotPlaylistJSoupParser {
             for (Element playList : playLists){
                 String href = playList.attr("href");
                 String name = playList.attr("title");
-                String idStr = href.replaceAll("/playlist\\?id=", "");
+                String idStr = href.replaceAll(ParserConstants.PLAYLIST_ID, "");
                 long id = StringUtils.isBlank(idStr) ? 0 : Long.valueOf(idStr);
                 Playlist playlist = buildPlaylist(name, id);
                 playlists.add(playlist);

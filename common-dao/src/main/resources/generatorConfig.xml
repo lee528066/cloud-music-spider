@@ -47,6 +47,8 @@
         <!-- table表生成对应的DoaminObject -->
         <table tableName="playlist" domainObjectName="Playlist"/>
         <table tableName="song" domainObjectName="Song"/>
+        <table tableName="song_artist" domainObjectName="SongArtist"/>
+        <table tableName="song_comment" domainObjectName="SongComment"/>
     </context>
 
 </generatorConfiguration>

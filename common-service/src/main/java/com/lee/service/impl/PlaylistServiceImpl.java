@@ -4,11 +4,10 @@ import com.lee.dao.mapper.PlaylistMapper;
 import com.lee.dao.model.Playlist;
 import com.lee.dao.model.PlaylistExample;
 import com.lee.service.PlaylistService;
+import com.lee.service.utils.ResultUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author liwei
@@ -23,8 +22,6 @@ public class PlaylistServiceImpl implements PlaylistService {
     public Playlist getByCloudPlaylistId(long cloudPlaylistId) {
         PlaylistExample example = new PlaylistExample();
         example.createCriteria().andCloudPlaylistIdEqualTo(cloudPlaylistId);
-        List<Playlist> playlists = playlistMapper.selectByExample(example);
-        Assert.notEmpty(playlists, "当前歌单不存在");
-        return playlists.get(0);
+        return ResultUtils.findOne(playlistMapper.selectByExample(example));
     }
 }

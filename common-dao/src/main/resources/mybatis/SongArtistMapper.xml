@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lee.dao.mapper.SongMapper">
-  <resultMap id="BaseResultMap" type="com.lee.dao.model.Song">
+<mapper namespace="com.lee.dao.mapper.SongArtistMapper">
+  <resultMap id="BaseResultMap" type="com.lee.dao.model.SongArtist">
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="song_id" jdbcType="BIGINT" property="songId" />
     <result column="cloud_song_id" jdbcType="BIGINT" property="cloudSongId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="cloud_album_id" jdbcType="BIGINT" property="cloudAlbumId" />
-    <result column="album" jdbcType="VARCHAR" property="album" />
+    <result column="artist" jdbcType="VARCHAR" property="artist" />
+    <result column="cloud_artist_id" jdbcType="BIGINT" property="cloudArtistId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -69,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, cloud_song_id, name, cloud_album_id, album, create_time, update_time
+    id, song_id, cloud_song_id, artist, cloud_artist_id, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.lee.dao.model.SongExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lee.dao.model.SongArtistExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from song
+    from song_artist
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,44 +88,44 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from song
+    from song_artist
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from song
+    delete from song_artist
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.lee.dao.model.SongExample">
-    delete from song
+  <delete id="deleteByExample" parameterType="com.lee.dao.model.SongArtistExample">
+    delete from song_artist
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.lee.dao.model.Song">
-    insert into song (id, cloud_song_id, name, 
-      cloud_album_id, album, create_time, 
+  <insert id="insert" parameterType="com.lee.dao.model.SongArtist">
+    insert into song_artist (id, song_id, cloud_song_id, 
+      artist, cloud_artist_id, create_time, 
       update_time)
-    values (#{id,jdbcType=BIGINT}, #{cloudSongId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
-      #{cloudAlbumId,jdbcType=BIGINT}, #{album,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=BIGINT}, #{songId,jdbcType=BIGINT}, #{cloudSongId,jdbcType=BIGINT}, 
+      #{artist,jdbcType=VARCHAR}, #{cloudArtistId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.lee.dao.model.Song">
-    insert into song
+  <insert id="insertSelective" parameterType="com.lee.dao.model.SongArtist">
+    insert into song_artist
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
+      <if test="songId != null">
+        song_id,
+      </if>
       <if test="cloudSongId != null">
         cloud_song_id,
       </if>
-      <if test="name != null">
-        name,
+      <if test="artist != null">
+        artist,
       </if>
-      <if test="cloudAlbumId != null">
-        cloud_album_id,
-      </if>
-      <if test="album != null">
-        album,
+      <if test="cloudArtistId != null">
+        cloud_artist_id,
       </if>
       <if test="createTime != null">
         create_time,
@@ -138,17 +138,17 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
+      <if test="songId != null">
+        #{songId,jdbcType=BIGINT},
+      </if>
       <if test="cloudSongId != null">
         #{cloudSongId,jdbcType=BIGINT},
       </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
+      <if test="artist != null">
+        #{artist,jdbcType=VARCHAR},
       </if>
-      <if test="cloudAlbumId != null">
-        #{cloudAlbumId,jdbcType=BIGINT},
-      </if>
-      <if test="album != null">
-        #{album,jdbcType=VARCHAR},
+      <if test="cloudArtistId != null">
+        #{cloudArtistId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -158,29 +158,29 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.lee.dao.model.SongExample" resultType="java.lang.Long">
-    select count(*) from song
+  <select id="countByExample" parameterType="com.lee.dao.model.SongArtistExample" resultType="java.lang.Long">
+    select count(*) from song_artist
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update song
+    update song_artist
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.songId != null">
+        song_id = #{record.songId,jdbcType=BIGINT},
+      </if>
       <if test="record.cloudSongId != null">
         cloud_song_id = #{record.cloudSongId,jdbcType=BIGINT},
       </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.artist != null">
+        artist = #{record.artist,jdbcType=VARCHAR},
       </if>
-      <if test="record.cloudAlbumId != null">
-        cloud_album_id = #{record.cloudAlbumId,jdbcType=BIGINT},
-      </if>
-      <if test="record.album != null">
-        album = #{record.album,jdbcType=VARCHAR},
+      <if test="record.cloudArtistId != null">
+        cloud_artist_id = #{record.cloudArtistId,jdbcType=BIGINT},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -194,32 +194,32 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update song
+    update song_artist
     set id = #{record.id,jdbcType=BIGINT},
+      song_id = #{record.songId,jdbcType=BIGINT},
       cloud_song_id = #{record.cloudSongId,jdbcType=BIGINT},
-      name = #{record.name,jdbcType=VARCHAR},
-      cloud_album_id = #{record.cloudAlbumId,jdbcType=BIGINT},
-      album = #{record.album,jdbcType=VARCHAR},
+      artist = #{record.artist,jdbcType=VARCHAR},
+      cloud_artist_id = #{record.cloudArtistId,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lee.dao.model.Song">
-    update song
+  <update id="updateByPrimaryKeySelective" parameterType="com.lee.dao.model.SongArtist">
+    update song_artist
     <set>
+      <if test="songId != null">
+        song_id = #{songId,jdbcType=BIGINT},
+      </if>
       <if test="cloudSongId != null">
         cloud_song_id = #{cloudSongId,jdbcType=BIGINT},
       </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+      <if test="artist != null">
+        artist = #{artist,jdbcType=VARCHAR},
       </if>
-      <if test="cloudAlbumId != null">
-        cloud_album_id = #{cloudAlbumId,jdbcType=BIGINT},
-      </if>
-      <if test="album != null">
-        album = #{album,jdbcType=VARCHAR},
+      <if test="cloudArtistId != null">
+        cloud_artist_id = #{cloudArtistId,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -230,12 +230,12 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lee.dao.model.Song">
-    update song
-    set cloud_song_id = #{cloudSongId,jdbcType=BIGINT},
-      name = #{name,jdbcType=VARCHAR},
-      cloud_album_id = #{cloudAlbumId,jdbcType=BIGINT},
-      album = #{album,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.lee.dao.model.SongArtist">
+    update song_artist
+    set song_id = #{songId,jdbcType=BIGINT},
+      cloud_song_id = #{cloudSongId,jdbcType=BIGINT},
+      artist = #{artist,jdbcType=VARCHAR},
+      cloud_artist_id = #{cloudArtistId,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

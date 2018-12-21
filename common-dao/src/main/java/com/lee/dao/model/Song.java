@@ -5,13 +5,13 @@ import java.util.Date;
 public class Song {
     private Long id;
 
-    private Long playlistId;
-
-    private Long cloudPlaylistId;
-
     private Long cloudSongId;
 
     private String name;
+
+    private Long cloudAlbumId;
+
+    private String album;
 
     private Date createTime;
 
@@ -23,22 +23,6 @@ public class Song {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getPlaylistId() {
-        return playlistId;
-    }
-
-    public void setPlaylistId(Long playlistId) {
-        this.playlistId = playlistId;
-    }
-
-    public Long getCloudPlaylistId() {
-        return cloudPlaylistId;
-    }
-
-    public void setCloudPlaylistId(Long cloudPlaylistId) {
-        this.cloudPlaylistId = cloudPlaylistId;
     }
 
     public Long getCloudSongId() {
@@ -55,6 +39,22 @@ public class Song {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getCloudAlbumId() {
+        return cloudAlbumId;
+    }
+
+    public void setCloudAlbumId(Long cloudAlbumId) {
+        this.cloudAlbumId = cloudAlbumId;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     public Date getCreateTime() {
